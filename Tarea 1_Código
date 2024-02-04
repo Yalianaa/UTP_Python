@@ -1,0 +1,5 @@
+Celsius= float(input("Ingresa una temperatura en grados Celsius"))
+kelvin= Celsius +273.15
+Rankine= (Celsius*9/5) +491.67
+print (f"la temperatura en kelvin es:",{kelvin}, "kelvin", "y", "la temperatura en Rankine es:",{Rankine})
+#Agregue la función f-string que representa un número flotante, es decir, por existir.
