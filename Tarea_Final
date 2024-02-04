@@ -1,0 +1,35 @@
+# Importar bibliotecas
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Especificar el archivo
+archivo_txt = 'calentamiento_oceano_nasa.txt'
+
+#Leer el archivo de txt , delimitar los espacios en blanco del archivo
+#(aún tengo la versión vieja, so opte por usar el #delim_whitespace# y crear un DataFrame
+df = pd.read_table(archivo_txt, delim_whitespace=True)
+
+#Especifique la lista de columnas para depurar
+columnas_a_depurar = ['WO', 'NH', 'SH']
+
+#Depurar valores negativos en columnas específicadas en columnas_a_depurar
+filas_negativas=(df[columnas_a_depurar] < 0).any(axis=1)
+
+#depurar las filas negativas 
+df_limpio= df[~filas_negativas]
+
+#matplot
+plt.figure(figsize=(10,6))
+plt.plot(df_limpio['YEAR'], df_limpio['WO'], label='WO')
+plt.xlabel('Año')
+plt.ylabel('Valores depurados')
+plt.title('Datos Depurados de Temperatura del Océano')
+plt.legend()
+plt.show()
+
+# Guardar el DataFrame depurado en un archivo CSV
+df_limpio.to_csv('df_limpio.csv', index=False)
+
+#Imprimir el DataFrame depurado
+print(df_limpio)
