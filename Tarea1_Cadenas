@@ -1,0 +1,7 @@
+math.sqrt()
+
+altura= float(input("Sugiera una altura: "))
+raíz_cuadrada= math.sqrt((2*altura)/9.8)
+Velocidad= math.sqrt(2*9.8*altura)
+
+print(f"El tiempo de velocidad final es:",{tiempo}, "La velocidad final es:",{Velocidad})
